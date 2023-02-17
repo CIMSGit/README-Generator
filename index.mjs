@@ -27,4 +27,38 @@ let {first_name, last_name, Github, LinkedIn} = await inquirer
        
     ])
 
+    let README =  `# Csaba's Portfolio
+
+    ## Description 
     
+    A ${first_name} of work,showcasing my skills and talent.
+    
+    Using :YYY, YYY, YYY YYY, and YYY variables. You'll get to see my new skills. 
+    <hr>
+    
+    
+    ## Resources:
+    
+    YYYYYYYYY
+    <hr>
+    
+    ## Installation
+    YYYYYYYYY 
+    <hr>
+    
+    YYYYYYYYY
+    
+    ## Deployed project
+    YYYYYYYYYYYY <hr>
+    
+    ### Credits
+    N/A
+    <hr>
+    
+    ### License
+    
+    [MIT LICENSE](./LICENSE)`
+  
+      await fs.writeFile("README.md", README)
+  
+      console.log("success!")
