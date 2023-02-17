@@ -1,7 +1,7 @@
 import inquirer from 'inquirer';
 import fs from "fs/promises"
 
-let {first_name, last_name, Github, LinkedIn} = await inquirer
+let { first_name, Github, LinkedIn, license } = await inquirer
     .prompt([
         {
             type: 'input',
@@ -9,56 +9,34 @@ let {first_name, last_name, Github, LinkedIn} = await inquirer
             message: "What's your first name",
         },
         {
-            type: 'input',
-            name: 'last_name',
-            message: "What's your last name",
-            
+            type: 'list',
+            name: 'license',
+            message: "What's your license",
+            choices: ["MIT", "BOOST"]
+
         },
-        {
-            type: 'input',
-            name: 'Github',
-            message: "What's your GitHub name?",
-        },
-        {
-            type: 'input',
-            name: 'LinkedIn',
-            message: "What's your LinkedIn link?",
-        },
-       
+
+
     ])
 
-    let README =  `# Csaba's Portfolio
+let README =`
+# Csaba's Portfolio
 
-    ## Description 
-    
-    A ${first_name} of work,showcasing my skills and talent.
-    
-    Using :YYY, YYY, YYY YYY, and YYY variables. You'll get to see my new skills. 
-    <hr>
-    
-    
-    ## Resources:
-    
-    YYYYYYYYY
-    <hr>
-    
-    ## Installation
-    YYYYYYYYY 
-    <hr>
-    
-    YYYYYYYYY
-    
-    ## Deployed project
-    YYYYYYYYYYYY <hr>
-    
-    ### Credits
-    N/A
-    <hr>
-    
-    ### License
-    
-    [MIT LICENSE](./LICENSE)`
-  
-      await fs.writeFile("README.md", README)
-  
-      console.log("success!")
+## License
+${generateLicense(license)}
+
+## Other
+`
+
+await fs.writeFile("README.md", README)
+
+
+
+function generateLicense(license) {
+    if (license === "MIT") {
+        return "[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)"
+    }
+    if (license === "BOOST") {
+        return "[![License](https://img.shields.io/badge/License-Boost_1.0-lightblue.svg)](https://www.boost.org/LICENSE_1_0.txt)"
+    }
+}
