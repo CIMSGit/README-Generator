@@ -11,7 +11,7 @@
 
 
 ## Description
-An application giving hand to the user by asking professional questions to create a quality README file.
+An application giving a hand to the user by asking professional questions to create a quality README file.
 ## Installation
 Installation of Node JS and NPM packages(INQUIRER) are required. Click on [Node JS](https://nodejs.org/en/). For more information please read through the official documentations.
 ## Usage
