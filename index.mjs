@@ -28,7 +28,7 @@ let { title, description, installation, usage, contributing, tests, license } = 
         },
         {
             type: 'input',
-            name: 'test',
+            name: 'tests',
             message: "Any tests run?",
         },
         {
@@ -45,6 +45,15 @@ let { title, description, installation, usage, contributing, tests, license } = 
 let README = `
 # ${title}
 
+###
+- [Description](#description)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Contributions](#contributions)
+- [Tests](#tests)
+- [LICENSE](#license)
+
+
 ## Description
 ${description}
 ## Installation
@@ -56,7 +65,10 @@ ${contributing}
 
 ## Tests
 ${tests}
-###### ${generateLicense(license)}
+
+
+###### LICENSE
+${generateLicense(license)}
 `
 
 await fs.writeFile("README.md", README)
