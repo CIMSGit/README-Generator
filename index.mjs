@@ -35,7 +35,7 @@ let { title, description, installation, usage, contributing, tests, license } = 
             type: 'list',
             name: 'license',
             message: "What's your license",
-            choices: ["MIT", "BOOST", "Apache 2.0",]
+            choices: ["MIT", "BOOST", "Apache 2.0"]
 
         },
 
